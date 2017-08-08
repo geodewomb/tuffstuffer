@@ -1,0 +1,6 @@
+car	10	0	Cart, Hand	-	
+hsr	40	0	Horse, Riding	-	
+hsw	200	0	Horse, War	-	
+mul	20	0	Mule	-	
+row	20	0	Rowboat	-	
+wag	50	0	Wagon	-	
