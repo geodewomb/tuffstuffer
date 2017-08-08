@@ -9,15 +9,14 @@ my @supplies = slurp_items("stuff/supplies.txt");
 my @transit = slurp_items("stuff/transportation.txt");
 my @kits = slurp_items("stuff/kits.txt");
 my @override;
-my $class = 'x';
-my $total = 0;
-my $heavy = 0;
 
-#intro();
+my ($class, $gold, $pocket, $heavy);
+
+#ntro();
 
 loop {
-
-  say box("+ Equip me! (e) + Help (h) + Quit (q) +"); 
+  my @menu = "+ Equip me! (e) + Help (h) + Quit (q) +";
+  say box(@menu); 
   write("What say you? ");
   my $input = prompt('');
   say '';
@@ -31,29 +30,17 @@ loop {
 }
 
 
-##### SUB RUE TINES ##############################################
+##### subroutines ##############################################
 
-sub box { 
+sub box(@content) {    ### formats content for printing
 
-  ### formats content for printing
-
-  my @content = @_;
   my $linelength = 0;
-
-  # find longest line
-
-  for @content {
-    if $_.chars > $linelength { $linelength = $_.chars; }
-  }
-
-  # pad shorter lines with spaces
+  for @content { $linelength = $_.chars if $_.chars > $linelength; }
 
   for @content {
     my $dif = $linelength - $_.chars; 
-    $_ = "| " ~ $_ ~ " " x $dif ~ " |";
+    $_ = "| $_" ~ " " x $dif ~ " |";
   }
-
-  # add borders and return
 
   my $border = "+-" ~ "-" x $linelength ~ "-+";
   unshift @content, $border;
@@ -62,15 +49,15 @@ sub box {
   return @content.join("\n");
 }
 
-sub get_class {
+sub get_class {   ### queries class and returns snarky comment
+
+  my token wiz { [[m?\-?u]||w] }
 
   write("What class are you? ");
   
   loop {
-    
-    my token wiz { [[m?\-?u]||w] }
-    my $input = prompt('');
-    say '';
+    my $input = prompt(''); say '';
+
     given $input.lc {
 
       when /exit||quit||^q$/ { exit; }
@@ -102,10 +89,10 @@ sub get_class {
       }
       
       # single class
+
       when /^fig||^f$/ { say "Your class is Fighter."; write("...not a lover.\n") }
       when /^pal||^p$/ { say "Your class is Paladin. "; write("It's pronounced puhLAH-din.\n") }
       when /^ran||^r$/ { say "Your class is Ranger.";  write("Rhymes with danger.\n"); }
-
       when /^mag||^wiz/ or /^<wiz>$/ { 
         say "Your class is Magic-User."; 
         write ("You will only be shown armor and weapons Magic-Users can magic-use.\n");
@@ -145,20 +132,17 @@ sub get_class {
 
 
 
-sub get_gold { 
-
-  ### asks for gold 
+sub get_gold {   ### queries gold and optionally rolls for it
   
-  my $gold = 0;
   my @dice = < 0 ⚀  ⚁  ⚂  ⚃  ⚄  ⚅ >;
+  $gold = 0;
+
   write("How much gold have you? ");
 
-  # verify amount and return
-
   loop {
-    my $input = prompt('');
-    say '';
-    given $input {
+    my $input = prompt(''); say '';
+
+    given $input.lc {
       when /exit||quit||^q$/ { exit; }
       when /^0$/ { 
         write("I can't afford charity cases! Come back after you've done something useful with your life!\n"); 
@@ -173,11 +157,18 @@ sub get_gold {
       default { write("Sorry we don't use that currency here... How much gold do you have?\n"); }
     }
   }
-  return $gold; 
+  return $gold;
 }
 
-sub gm_override {
+sub gm_override {   ### allows custom item adding but needs more verification
+
   my @inputs = @_.split(':');
+  if @inputs[1] ~~ /clear/ { 
+    say "Clearing all GM override items."; 
+    for @override { $pocket += $_<price>; $heavy -= $_<weight>; }
+    @override = ();
+    return;
+  }
   unless @inputs.elems == 4 { say "GM override requires :[name]:[price]:[weight]."; return; }
   my %item = code => "gm{@override.elems}",
              name => @inputs[1],
@@ -185,20 +176,18 @@ sub gm_override {
              weight => @inputs[3],
              note => "GM override item",
              quantity => 1;
-  unless $total >= %item<price> { say "Item is too expensive."; return; }
+  unless $pocket >= %item<price> { say "Item is too expensive."; return; }
 
   $heavy += %item<weight>;
-  $total -= %item<price>;
+  $pocket -= %item<price>;
   push @override, %item;
   say "added item %item<name>, %item<price>g, %item<weight>lbs.";
 }
 
 
-sub goodbye {
-  
-  ### pick a random goodbye and say it
+sub goodbye {   ### say a random goodbye
 
-  print "\n";
+  say '';
   my $goodbye = (0..16).pick;
   given $goodbye {
     when 0  { write("All sales final! Returns are for store credit only!") }
@@ -222,9 +211,9 @@ sub goodbye {
   say "\n";
 }
 
-sub help_me {
+sub help_me {   ### help text
   
-  say " ";
+  say '';
   say qq:to/END/;
 This program is for tracking item purchases.
 
@@ -243,7 +232,7 @@ Be sure to press (q) when you're done for an easy-to-read
 yet detailed summary of your purchases!
 
 GM overrides can add custom items. [ gm:Item Name, Spaces OK:n:n ] where n:n is gold:weight ]. 
-NOT IMPLEMENTED: [ gm:clear ] removes all GM override items. 
+[ gm:clear ] removes all GM override items. 
 
 Typing gm as your class will allow the listing every single item including hidden druid and kit entries.
 
@@ -251,24 +240,22 @@ END
        
 }
 
-sub intro {
-
-  ### intro for start of program
+sub intro {   ### dramatic intro
 
   write("\nWelcome to "); 
   write_words("TOUGH STUFF OUTFITTERS.");
   write("\nIt's...... ");
-  write_words("TOUGH STUFF TIME!"); print "\n\n";
+  write_words("TOUGH STUFF TIME!"); say "\n";
 }
 
-sub item_add($code) {
+sub item_add($code) {   ### add an item
 
   for (@armor,@melee,@bigweap,@mixmis,@missle,@supplies,@transit) {
     for $_ -> $entry {
       if $entry<code> ~~ $code {
-        unless $total >= $entry<price> { say "You can't afford that $entry<name>."; return; } 
+        unless $pocket >= $entry<price> { say "You can't afford that $entry<name>."; return; } 
         $entry<quantity>++;
-        $total -= $entry<price>;
+        $pocket -= $entry<price>;
         $heavy += $entry<weight>;
         say "added $entry<name>"; 
         return; 
@@ -278,14 +265,14 @@ sub item_add($code) {
   say "Sorry, [$code] is not an item. Please check the item tables.";
 }
        
-sub item_lose($code) {
+sub item_lose($code) {   ### remove an item
 
   for (@armor,@melee,@bigweap,@mixmis,@missle,@supplies,@transit) {
     for $_ -> $entry {
       if $entry<code> ~~ $code { 
         if $entry<quantity> > 0 { 
           $entry<quantity>--;
-          $total += $entry<price>;
+          $pocket += $entry<price>;
           $heavy -= $entry<weight>; 
           say "removed $entry<name>"; 
           return; 
@@ -297,8 +284,9 @@ sub item_lose($code) {
   say "Sorry, [$code] is not an item. Please check the item tables.";
 }
 
-sub item_request {
-  my @inputs = @_.shift.split(' ');
+sub item_request($in) {   ### parse item add/lose strings
+
+  my @inputs = $in.split(' ');
   for @inputs -> $input {
     if $input ~~ /^ (\+||\-) (\d?\d?) (<:L>**3) $/ {
       my $sig = "$0";
@@ -315,22 +303,19 @@ sub item_request {
   }
 }
 
-sub item_master {
+sub item_master {   ### main working loop
   
-  my $gold = get_gold();
-# my $gold = 100;
-  if $gold == 0 { return; }
-  $total = $gold;
+  $pocket = get_gold();
   $class = get_class();
   my @menu = "+ List Armor (a) + Weapons (w) + Supplies (s) + Transit (t) + Kits (k) +",
              "+ Add/Remove Items (+/-***) + View Cart (v) + Help! (h) + Checkout (q) +";
   say box(@menu);
 
   loop {
-    say "GOLD LEFT: $total / $gold";
+    say "GOLD LEFT: $pocket / $gold";
     write("What say you? ");
-    my $input = prompt('');
-    say '';
+    my $input = prompt(''); say '';
+
     given $input.lc {
       when /^gm:/ { gm_override($input); }
       when /every||^e$/ { list_all_items(); }
@@ -338,57 +323,47 @@ sub item_master {
       when /weapon||^w$/ { list_weapons(); }
       when /supplies||^s$/ { list_supplies(); }
       when /trans||^t$/ { list_transit(); }
-      when /kit[\+||\-]/ { kit_request($input); say ''; }
+      when /^kit[\+||\-]/ { kit_request($input); say ''; }
       when /kit||^k$/ { list_kits(); }
       when /^\+||^\-/ { item_request($input); say '';} 
-      when /view||purchase||^v$/ { print_inv($gold); }
+      when /view||purchase||^v$/ { print_inv(); }
       when /help||^h$/ { help_me(); }
-      when /quit||exit||^q$||^c$/ { print_reciept($gold); goodbye(); exit;}
-      default { write("Can't understand you, speak up!\n\n"); say box(@menu);}
+      when /quit||exit||^q$||^c$/ { print_reciept(); goodbye(); exit;}
+      default { write("Can't understand you, speak up!\n\n"); say box(@menu); }
     }
   }
-
 }
 
-sub kit_add {
-  my @items = @_.split(' ');
-  for @items { item_add($_); }
-}
+sub kit_request($in) {   ### parse kit requests into individual item requests
 
-sub kit_lose {
-  my @items = @_.split(' ');
-  for @items { item_lose($_); }
-}
-
-sub kit_request {
-  my $input = shift @_;
-  if $input ~~ /^kit(\+||\-)(<:L>**3)$/ {
+  if $in ~~ /^kit(\+||\-)(<:L>**3)$/ {
     my $sig = "$0";
     my $code = "$1";
+
     for @kits -> $k {
       if $k<code> ~~ $code {
-        given $sig {
-          when /'+'/ { 
-            unless $total >= $k<price> { say "You can't afford the $k<name> kit."; return; }
-            kit_add($k<note>);
-            $k<quantity>++;
-            $total -= $k<price>;
-            $heavy += $k<weight>; 
-          }
-          when /'-'/ { 
-            unless $k<quantity> > 0 { say "You don't have the $k<name> kit."; return; }
-            kit_lose($k<note>);
-            $k<quantity>--;
-            $total += $k<price>;
-            $heavy -= $k<weight>;
-          }
+        if $sig ~~ /'+'/ {
+          unless $pocket >= $k<price> { say "You can't afford the $k<name> kit."; return; }
+          for $k<note>.split(' ') { item_add($_); }
+          $k<quantity>++;
+          $pocket -= $k<price>;
+          $heavy += $k<weight>; 
         }
-      return;
+        elsif $sig ~~ /'-'/ { 
+          unless $k<quantity> > 0 { say "You don't have the $k<name> kit."; return; }
+          for $k<note>.split(' ') { item_lose($_); }
+          $k<quantity>--;
+          $pocket += $k<price>;
+          $heavy -= $k<weight>;
+        }
+        return;
       } 
     }
-    say "[$code] is not a kit. Please check the kit table. (k)"; 
+
+    say "[$code] is not a kit. Please check the kit table. (k)"; return;
   }
-  else { say "Kits can be added or removed by typing [ kit+*** ] or [ kit-***]."; }
+
+  say "Kits can be added or removed by typing [ kit+*** ] or [ kit-***]."; 
 }
 
 
@@ -417,7 +392,6 @@ sub list_kits {
     push @list, "%k<code>  {%k<name>}--------------------------------------------- %k<price> / %k<weight> lbs";
     my @third;
     for %k<note>.split(' ') -> $code {
-      say $code;
       for (@supplies,@transit) {
         for $_ -> $i { if $i<code> ~~ $code { push @third, $i<name>; } }
       }
@@ -503,8 +477,8 @@ sub list_weapons {
   say box(@list);
 }
 
-sub print_inv {
-  my $gold = shift @_;
+sub print_inv {   ### print short-form inventory
+
   my @reciept; 
   my @inv;
   for @armor,@melee,@bigweap,@mixmis,@missle,@kits,@supplies,@transit,@override -> $a {
@@ -514,12 +488,12 @@ sub print_inv {
     if @inv.elems > 0 { @reciept.append(@inv); }
     @inv = ();
   }
-  @reciept.push("TOTAL:  {$gold - $total}g  $heavy lbs");
+  @reciept.push("TOTAL:  {$gold - $pocket}g  $heavy lbs");
   say box(@reciept);
 }
 
-sub print_reciept {
-  my $gold = shift @_; 
+sub print_reciept {   ### print long-form inventory
+
   my @reciept;
   
   my @inv;
@@ -551,7 +525,7 @@ sub print_reciept {
   @inv = ();
   for @override { if $_<quantity> > 0 { my $line = tally($_); push @inv, $line; } }
   if @inv.elems > 0 { push @reciept, " "; push @reciept, "OTHER"; push @reciept, "----------- "; @reciept.append(@inv); }
-  my $amount = $gold - $total ~ "g";
+  my $amount = $gold - $pocket ~ "g";
   until $amount.chars == 6 { $amount = " " ~ $amount; }
   until $heavy.chars == 4 { $heavy = " " ~ $heavy; }
   push @reciept, " ";
@@ -567,8 +541,8 @@ sub print_reciept {
   say box(@reciept);
 }
 
-sub pull_items {
-  my @things = @_;
+sub pull_items(@things) {   ### list items off given array and leave out restricted entries
+  
   my @pulled;
   for @things {
     my %item = $_;
@@ -586,18 +560,19 @@ sub pull_items {
   return @pulled;
 }
 
-sub slurp_items {
-  my $path = shift @_;
+sub slurp_items($path) {   ### load item arrays from external file
+
   my $file = open "$path", :r;
-  my @list;
+  my @array;
+
   for $file.lines {
     my @data = $_.split("\t");
     my $code = shift @data;
     my $price = shift @data;
     my $weight = shift @data;
     my $name = shift @data;
-    my $note = shift @data;
-    my $restrict = shift @data;
+    my $note = shift @data or '';
+    my $restrict = shift @data or '';
     my %thing = 'code' => $code,
                 'name' => $name,
                 'price' => $price,
@@ -605,14 +580,13 @@ sub slurp_items {
                 'note' => $note,
                 'restrict' => $restrict,
                 'quantity' => 0;
-    @list.push(%thing);
+    @array.push(%thing);
   }
-  return @list; 
+  return @array; 
 }
 
-sub tally {
+sub tally(%i) {   ### pull info out of array and format for listing in the reciept
   
-  my %i = shift @_;      
   my $gold_total = %i<price> * %i<quantity> ~ "g";
   until $gold_total.chars >= 5 { $gold_total = " " ~ $gold_total; }  
   my $weight_total = %i<weight> * %i<quantity> ~ " lbs";
@@ -624,9 +598,8 @@ sub tally {
   return "$name $quant {$gold_total} $weight_total  %i<note>"; 
 }
 
-sub tally_tiny {
+sub tally_tiny(%i) {   ### pull some info out of array for listing in inventory
   
-  my %i = shift @_;
   %i<price> ~= "g";
   until %i<price>.chars >= 5 { %i<price> ~= " "; }  
   %i<weight> ~= " lbs";
@@ -637,20 +610,16 @@ sub tally_tiny {
   return @line;
 }
 
-sub write {
- 
-  ### type text character by character
+sub write($string) {   ### type text character by character
   
   sleep .5;
-  my @string = @_.shift.split('');
-  for @string { print $_; sleep .05; }
+  my @chars = $string.split('');
+  for @chars { print $_; sleep .05; }
 }
   
-sub write_words {
-  
-  ### type text word by word
+sub write_words($string) {   ### type text word by word
 
   sleep .5;
-  my @string = @_.shift.split(' ');
-  for @string { print $_ ~ ' '; sleep .5; }
+  my @words = $string.split(' ');
+  for @words { print $_ ~ ' '; sleep .5; }
 }
