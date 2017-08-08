@@ -1,0 +1,129 @@
+kac	0	0	Acid, lock-eating (10)	*part of kit	f w c d t a m
+bkp	5	0	Backpack (30 lb cap.)	-	
+kbp	0	0	Backpack (30 lb cap.)	*part of kit	f w c d t a m
+kba	0	0	Bandages	*part of kit	f w c d t a m
+kbd	0	0	Barding, light	*part of kit	f w c d t a m
+brl	2	0	Barrel	-	
+kbr	0	0	Barrel, stout wooden	*part of kit	f w c d t a m
+bed	0.2	0	Bedroll	-	
+bel	1	0	Bell	-	
+kbe	0	0	Beer, good (1 firkin)	*part of kit	f w c d t a m
+kbb	0	0	Bit and bridle	*part of kit	f w c d t a m
+kbl	0	0	Blanket	*part of kit	f w c d t a m
+blo	5	0	Block and tackle	-	
+kbt	0	0	Block and tackle	*part of kit	f w c d t a m
+win	2	0	Bottle of wine, glass	-	
+cdl	0.01	0	Candle	-	
+kca	0	0	Candles (12)	*part of kit	f w c d t a m	
+cnv	0.1	0	Canvas (per sq yard)	-	
+cas	1	0	Case (map or scroll)	-	
+cha	30	0	Chain (10 ft)	-	
+chk	0.05	0	Chalk, 1 piece	-	
+kch	0	0	Chalk, multiple colors	*part of kit	f w c d t a m	
+kcs	0	0	Chess set	*part of kit	f w c d t a m	
+che	2	0	Chest	-	
+kha	0	0	Climbing harness	*part of kit	f w c d t a m	
+kck	0	0	Coal keeper	*part of kit	f w c d t a m	
+cro	0.2	0	Crowbar	-	
+kcw	0	0	Crowbar	*part of kit	f w c d t a m	
+kdt	0	0	Drafting tools	*part of kit	f w c d t a m	
+kdk	0	0	Deck of cards	*part of kit	f w c d t a m	
+kdm	0	0	Deck of marked cards	*part of kit	f w c d t a m	
+kfd	0	0	Feed, horse (1 wk)	*part of kit	f w c d t a m	
+kfh	0	0	Fishhooks (6)	*part of kit	f w c d t a m	
+fsh	4	0	Fishing net (25 sqft)	-	
+fsk	0.03	0	Flask, leather	-	
+fli	1	0	Flint & steel	-	
+kfl	0	0	Flint & steel	*part of kit	f w c d t a m		
+kfp	0	0	Frying pan, iron	*part of kit	f w c d t a m		
+kfs	0	0	Fuses (12)	*part of kit	f w c d t a m		
+kfo	0	0	Food (1 day)	*part of kit	f w c d t a m
+kgb	0	0	Garlic (6 bulbs)	*part of kit	f w c d t a m	
+gar	10	0	Garlic, charmed	-	
+kga	0	0	Garlic, charmed	*part of kit	f w c d t a m	
+kwc	0	0	Glass case, wooden	*part of kit	f w c d t a m	
+kgc	0	0	Glass cutter	*part of kit	f w c d t a m	
+gph	1	0	Grappling hook	-	
+kgh	0	0	Grappling hook	*part of kit	f w c d t a m	
+kgp	0	0	Grease Pot	*part of kit	f w c d t a m	
+hsw	1	0	Holy symbol, wooden	-	
+khs	0	0	Holy symbol, wooden	*part of kit	f w c d t a m	
+hss	25	0	Holy symbol, silver	-	
+hwt	25	0	Holy water (flask)	-	
+khw	0	0	Holy water (flask)	*part of kit	f w c d t a m	
+ink	1	0	Ink (1-ounce bottle)	-	
+kin	0	0	Ink, writing (6 vials)	*part of kit	f w c d t a m	
+lad	0.05	0	Ladder (10 foot)	-	
+lmp	0.1	0	Lamp, bronze	-	
+klm	0	0	Lamp, bronze	*part of kit	f w c d t a m	
+lbe	12	0	Lantern, bullseye	-	
+lhd	7	0	Lantern, hooded	-	
+loc	20	0	Lock (20g or more)	-	
+mal	0.5	0	Mallet	-	
+kml	0	0	Mallet	*part of kit	f w c d t a m	
+kmc	0	0	Map cases (5)	*part of kit	f w c d t a m	
+man	15	0	Manacles	-	
+kmk	0	0	Mess kit	*part of kit	f w c d t a m
+mir	20	0	Mirror, small steel	-	
+kmi	0	0	Mirror, small steel	*part of kit	f w c d t a m	
+mus	5	0	Musical instrument	-	
+knl	0	0	Nails, Iron (20)	*part of kit	f w c d t a m
+kne	0	0	Needles, sewing (6)	*part of kit	f w c d t a m
+oil	0.1	0	Oil, lamp (1 pint)	-	
+koi	0	0	Oil, lamp (6 pint)	*part of kit	f w c d t a m	
+pch	0.2	0	Parchment (sheet)	-	
+kpa	0	0	Parchment (50 sheets)	*part of kit	f w c d t a m	
+kpw	0	0	Pipe, clay smoking	*part of kit	f w c d t a m	
+kpw	0	0	Pipeweed, halfling	*part of kit	f w c d t a m	
+kpl	0	0	Pliers	*part of kit	f w c d t a m	
+pol	0.2	0	Pole, wooden (10 ft)	-	
+kpo	0	0	Pole, wooden (10 ft)	*part of kit	f w c d t a m	
+pot	0.5	0	Pot, iron	-	
+kqu	0	0	Quills (10)	*part of kit	f w c d t a m	
+kqk	0	0	Quills Knife	*part of kit	f w c d t a m	
+rtt	0.5	0	Rations, trail (1 day)	-	
+rtd	1	0	Rations, dried (1 day)	-	
+krd	0	0	Rations, dried (1 wk)	*part of kit	f w c d t a m
+rph	1	0	Rope, hemp (50 ft)	-	
+krh	0	0	Rope, hemp (100ft)	*part of kit	f w c d t a m
+rps	10	0	Rope, silk (50 ft)	-	
+sks	1	0	Sack (15 lb capacity)	-	
+skl	2	0	Sack (30 lb capacity)	-	
+ksa	0	0	Salt (1 lb)	*part of kit	f w c d t a m
+kst	0	0	Satchel, oilskin	*part of kit	f w c d t a m
+ksb	0	0	Saddlebags (100 lb cap)	*part of kit	f w c d t a m
+ksd	0	0	Saddle, war horse	*part of kit	f w c d t a m
+ksc	0	0	Scissors	*part of kit	f w c d t a m
+kdi	0	0	Set of dice	*part of kit	f w c d t a m
+kdl	0	0	Set of loaded dice	*part of kit	f w c d t a m
+svl	2	0	Shovel	-	
+ksh	0	0	Shovel	*part of kit	f w c d t a m	
+whi	0.5	0	Signal whistle	-	
+ksr	0	0	Signet ring	*part of kit	f w c d t a m	
+ksm	0	0	Smoking pouch	*part of kit	f w c d t a m	
+ksp	0	0	Soap, 1/2 bar	*part of kit	f w c d t a m
+kso	0	0	Soap (1 lb bar)	*part of kit	f w c d t a m
+spb	25	0	Spellbook, blank	-	
+spi	0.05	0	Spike, iron	-	
+kis	0	0	Spikes, iron (12)	*part of kit	f w c d t a m
+kwo	0	0	Stakes, wooden (10)	*part of kit	f w c d t a m
+krz	0	0	Straight razor	*part of kit	f w c d t a m
+ksi	0	0	String, silk (100 ft)	*part of kit	f w c d t a m
+ksg	0	0	String (100 ft)	*part of kit	f w c d t a m
+kta	0	0	Tankards, pewter (2)	*part of kit	f w c d t a m
+ktp	0	0	Teapot	*part of kit	f w c d t a m
+tnt	10	0	Tent	-	
+ktb	0	0	Tinderbox	*part of kit	f w c d t a m
+ktg	0	0	Tongs	*part of kit	f w c d t a m
+tor	0.01	0	Torch	-	
+kto	0	0	Torches (12)	*part of kit	f w c d t a m	
+wat	1	0	Waterskin	-	
+kwa	0	0	Waterskin	*part of kit	f w c d t a m
+kwx	0	0	Wax, sealing (1 lb)	*part of kit	f w c d t a m
+kwg	0	0	Wine cups, metal (2)	*part of kit	f w c d t a m
+kqw	0	0	Wine, quality (3 bot)	*part of kit	f w c d t a m
+kwi	0	0	Wineskin (1 gallon)	*part of kit	f w c d t a m
+kwb	0	0	Weapon belt	*part of kit	f w c d t a m
+kws	0	0	Whetstone	*part of kit	f w c d t a m
+kwr	0	0	Writing board	*part of kit	f w c d t a m
+wlf	0.1	0	Wolfsbane	-	

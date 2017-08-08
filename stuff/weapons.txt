@@ -1,0 +1,22 @@
+axb	5	15	Axe, battle	1d6   
+axh	1	5	Axe, hand	1d6 [1-hand][range 10 ft]
+clb	0	10	Club	1d61
+dag	2	2	Dagger	1d6-1 [1-hand][range 10 ft]
+fla	8	10	Flail	1d6+1 [2-hand]  
+hmr	1	10	Hammer, war	1d6   
+lnc	6	15	Lance	1d6 [+1 v charge]
+mac	10	10	Mace, heavy	1d6   
+plm	10	15	Polearm	1d6+1 [2-hand]
+spr	1	10	Spear	1d6 [+1 v charge][range 20 ft]
+stf	0	10	Staff	1d6 [2-hand]
+swb	20	10	Sword, bastard	1d6  	
+swl	15	10	Sword, long  	1d6
+sws	8	5	Sword, short	1d6
+swt	30	15	Sword, two-handed	1d6+1 [2-hand]
+bwl	60	5	Bow, long	1d6 [range 60 ft]
+bws	15	5	Bow, short	1d6 [range 50 ft]
+cbh	20	5	Crossbow, heavy	1d6 [range 80 ft]
+cbl	12	5	Crossbow, light	1d6 [range 60 ft]
+drt	0.2	1	Dart	1d6-1 [range 15 ft]
+jav	0.5	5	Javelin	1d6 [range 20 ft]
+sli	0.2	1	Sling	1d6 [range 40 ft]
