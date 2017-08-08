@@ -1,9 +1,0 @@
-axb	5	15	Axe, battle	1d6	w c d
-clb	0	10	Club	1d6	w d
-hmr	1	10	Hammer, war	1d6	w d
-lnc	6	15	Lance	1d6 [+1 v ch]	w c d
-mac	10	10	Mace, heavy	1d6	w d
-swb	20	10	Sword, bastard	1d6	w c d
-swl	15	10	Sword, long	1d6	w c d
-sws	8	5	Sword, short	1d6	w c d
-sic	8	5	Sword, sickle-shaped	1d6	f w c t a m

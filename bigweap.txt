@@ -1,4 +1,0 @@
-fla	8	10	Flail	1d6+1 [2-h]	w d
-plm	10	15	Polearm	1d6+1 [2-h]	w c d
-stf	0	10	Staff	1d6 [2-h]	d
-swt	30	15	Sword, two-handed	1d6+1 [2-h]	w c d

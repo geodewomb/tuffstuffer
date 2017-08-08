@@ -1,3 +1,0 @@
-axh	1	5	Axe, hand	1d6 [1-h] [10 ft]	w c d
-dag	2	2	Dagger	1d6-1 [1-h] [10 ft]	c
-spr	1	10	Spear	1d6 [+1 v ch] [20 ft]	w c

@@ -1,6 +1,0 @@
-shi	15	10	Shield	-1	w t m d
-shw	15	10	Wooden Shield	-1	f w c t a m
-lth	5	25	Leather Armor	-2	w m
-rng	30	40	Ring Armor	-3	w d t a m d
-chm	75	50	Chainmail	-4	w d t a m d
-plt	100	70	Plate Armor	-6	w d t a m d

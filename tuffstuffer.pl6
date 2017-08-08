@@ -1,13 +1,13 @@
 #!usr/local/bin/perl6
 
-my @armor = slurp_items("armor.txt");
-my @melee = slurp_items("melee.txt");
-my @bigweap = slurp_items("bigweap.txt");
-my @mixmis = slurp_items("mixmis.txt");
-my @missle = slurp_items("missle.txt");
-my @supplies = slurp_items("supplies.txt");
-my @transit = slurp_items("transportation.txt");
-my @kits = slurp_items("kits.txt");
+my @armor = slurp_items("stuff/armor.txt");
+my @melee = slurp_items("stuff/melee.txt");
+my @bigweap = slurp_items("stuff/bigweap.txt");
+my @mixmis = slurp_items("stuff/mixmis.txt");
+my @missle = slurp_items("stuff/missle.txt");
+my @supplies = slurp_items("stuff/supplies.txt");
+my @transit = slurp_items("stuff/transportation.txt");
+my @kits = slurp_items("stuff/kits.txt");
 my @override;
 my $class = 'x';
 my $total = 0;
