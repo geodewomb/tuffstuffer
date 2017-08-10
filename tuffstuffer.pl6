@@ -392,7 +392,7 @@ sub list_kits {
     push @list, "%k<code>  {%k<name>}--------------------------------------------- %k<price> / %k<weight> lbs";
     my @third;
     for %k<note>.split(' ') -> $code {
-      for (@supplies,@transit) {
+      for (@missle,@supplies,@transit) {
         for $_ -> $i { if $i<code> ~~ $code { push @third, $i<name>; } }
       }
     }

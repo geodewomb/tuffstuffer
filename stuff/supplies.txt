@@ -1,4 +1,6 @@
 kac	0	0	Acid, lock-eating (10)	*part of kit	f w c d t a m
+kfc	0	0	Acid (flask) (4)	*part of kit	f w c d t a m
+kas	0	0	Aspergillum	*part of kit	f w c d t a m
 bkp	5	0	Backpack (30 lb cap.)	-	
 kbp	0	0	Backpack (30 lb cap.)	*part of kit	f w c d t a m
 kba	0	0	Bandages	*part of kit	f w c d t a m
@@ -12,6 +14,7 @@ kbb	0	0	Bit and bridle	*part of kit	f w c d t a m
 kbl	0	0	Blanket	*part of kit	f w c d t a m
 blo	5	0	Block and tackle	-	
 kbt	0	0	Block and tackle	*part of kit	f w c d t a m
+keb	0	0	Bottles, empty (10)	*part of kit	f w c d t a m
 win	2	0	Bottle of wine, glass	-	
 cdl	0.01	0	Candle	-	
 kca	0	0	Candles (12)	*part of kit	f w c d t a m	
@@ -49,10 +52,15 @@ kgp	0	0	Grease Pot	*part of kit	f w c d t a m
 hsw	1	0	Holy symbol, wooden	-	
 khs	0	0	Holy symbol, wooden	*part of kit	f w c d t a m	
 hss	25	0	Holy symbol, silver	-	
+ksv	0	0	Holy symbol, silver	*part of kit	f w c d t a m	
 hwt	25	0	Holy water (flask)	-	
 khw	0	0	Holy water (flask)	*part of kit	f w c d t a m	
+kww	0	0	Holy water (flask) (3)	*part of kit	f w c d t a m	
 ink	1	0	Ink (1-ounce bottle)	-	
 kin	0	0	Ink, writing (6 vials)	*part of kit	f w c d t a m	
+kjb	0	0	Juggling balls (3)	*part of kit	f w c d t a m	
+kjc	0	0	Juggling clubs (3)	*part of kit	f w c d t a m	
+kjk	0	0	Juggling knives (5)	*part of kit	f w c d t a m	
 lad	0.05	0	Ladder (10 foot)	-	
 lmp	0.1	0	Lamp, bronze	-	
 klm	0	0	Lamp, bronze	*part of kit	f w c d t a m	
@@ -71,6 +79,7 @@ knl	0	0	Nails, Iron (20)	*part of kit	f w c d t a m
 kne	0	0	Needles, sewing (6)	*part of kit	f w c d t a m
 oil	0.1	0	Oil, lamp (1 pint)	-	
 koi	0	0	Oil, lamp (6 pint)	*part of kit	f w c d t a m	
+kfk	0	0	Oil (flask) (10)	*part of kit	f w c d t a m	
 pch	0.2	0	Parchment (sheet)	-	
 kpa	0	0	Parchment (50 sheets)	*part of kit	f w c d t a m	
 kpw	0	0	Pipe, clay smoking	*part of kit	f w c d t a m	
@@ -79,6 +88,7 @@ kpl	0	0	Pliers	*part of kit	f w c d t a m
 pol	0.2	0	Pole, wooden (10 ft)	-	
 kpo	0	0	Pole, wooden (10 ft)	*part of kit	f w c d t a m	
 pot	0.5	0	Pot, iron	-	
+kph	0	0	Pouches (5 lb cap) (7)	*part of kit	f w c d t a m	
 kqu	0	0	Quills (10)	*part of kit	f w c d t a m	
 kqk	0	0	Quills Knife	*part of kit	f w c d t a m	
 rtt	0.5	0	Rations, trail (1 day)	-	
@@ -89,6 +99,8 @@ krh	0	0	Rope, hemp (100ft)	*part of kit	f w c d t a m
 rps	10	0	Rope, silk (50 ft)	-	
 sks	1	0	Sack (15 lb capacity)	-	
 skl	2	0	Sack (30 lb capacity)	-	
+kls	0	0	Sack, large (30lb) (3)	*part of kit	f w c d t a m
+kss	0	0	Sack, small (15lb) (5)	*part of kit	f w c d t a m
 ksa	0	0	Salt (1 lb)	*part of kit	f w c d t a m
 kst	0	0	Satchel, oilskin	*part of kit	f w c d t a m
 ksb	0	0	Saddlebags (100 lb cap)	*part of kit	f w c d t a m
